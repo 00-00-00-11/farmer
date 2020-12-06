@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="a simple site to farm mee6 xp, or whatever really">
+    <title>the farmer</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body style="font-family: Verdana">
+    <h1>the farmer</h1>
+    <p>this will basically allow you to farm discord bots automatically. <s>definitely shouldn't be used as a spam tool</s></p>
+    <input type="text" id="token" placeholder="your token"><br>
+    <input type="number" id="channel" placeholder="channel id"><br>
+    <input type="text" id="words" placeholder="input phrases, separated by commas">
+    <input type="number" id="delay" placeholder="interval (ms)"><br><br>
+    <button id="start" onclick="farm(); start()">start farm</button>&nbsp;<button id="stop" onclick="stop()" style="display: inline;">stop farm</button>
+    <div id="store">
+    &nbsp;&nbsp;<button onclick="save()" id="save">save current config</button>
+    <button onclick="remove()" id="remove" style="display: inline;">remove config</button>
+    </div>
+    <sub>this website must remain <b>visible</b></sub>
+    <br>
+    <p id="sep"></p>
+    <p id="showID"></p>
+    <p id="showMS"></p>
+    <p id="showAMNT"></p>
+    <!-- start of scripts -->
+    <script>
+    var loop;
+    var delay;
+      function start() { 
+        if (document.getElementById('token').value==="") {
+          alert('you must provide a token');
+        } else if (document.getElementById('channel').value==="") {
+          alert('you must provide a channel id'); } else if (document.getElementById('words').value==="") {
+          alert('you must provide words to use'); } else if (document.getElementById('delay').value<500) {
+          alert('interval can only be 500ms or greater'); } else {
+          console.log('\nstarting...\n\n');
+        if (document.getElementById('delay').value!=="") {
+        delay = document.getElementById('delay').value;
+      }; 
+      document.getElementById('start').disabled = true; document.getElementById('stop').disabled = false; loop = setInterval(farm, delay);
+      document.getElementById('sep').innerHTML = "<hr>";
+        }
+       }
+      // ---
+      function stop() {
+        console.log('\nstopping...\n\n');
+        clearInterval(loop); document.getElementById('start').disabled = false; document.getElementById('stop').disabled = true; document.getElementById('showID').innerHTML = ""; document.getElementById('showMS').innerHTML = ""; document.getElementById('showAMNT').innerHTML = ""; document.getElementById('sep').innerHTML = ""; 
+      }
+    </script>
+    <!-- end of scripts -->
+    <script src="script.js"></script>
+  <!-- spam tool? nah... unless? -->
+  </body>
+</html>
