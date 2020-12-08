@@ -12,9 +12,9 @@
     <p>this will basically allow you to farm discord bots automatically. <s>definitely shouldn't be used as a spam tool</s></p>
     <input type="text" id="token" placeholder="your token"><br>
     <input type="number" id="channel" placeholder="channel id"><br>
-    <input type="text" id="words" placeholder="input phrases, separated by commas">
+    <input type="text" id="words" placeholder="input phrases, separated by commas"><br>
     <input type="number" id="delay" placeholder="interval (ms)"><br><br>
-    <button id="start" onclick="farm(); start()">start farm</button>&nbsp;<button id="stop" onclick="stop()" style="display: inline;">stop farm</button>
+    <button id="start" onclick="start()">start farm</button>&nbsp;<button id="stop" onclick="stop()" style="display: inline;">stop farm</button>
     <div id="store">
     &nbsp;&nbsp;<button onclick="save()" id="save">save current config</button>
     <button onclick="remove()" id="remove" style="display: inline;">remove config</button>
@@ -39,7 +39,7 @@
           console.log('\nstarting...\n\n');
         if (document.getElementById('delay').value!=="") {
         delay = document.getElementById('delay').value;
-      }; 
+      };
       document.getElementById('start').disabled = true; document.getElementById('stop').disabled = false; loop = setInterval(farm, delay);
       document.getElementById('sep').innerHTML = "<hr>";
         }
