@@ -43,3 +43,13 @@ button {
   outline: none;
   cursor: pointer;
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #b7b7b7;
+  color: black;
+  text-align: center;
+}
