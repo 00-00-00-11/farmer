@@ -32,7 +32,11 @@
     <script>
     var loop;
     var delay;
-      function start() { 
+      function start() {
+        if ('requestIdleCallback' in window) {
+          // requestIdleCallback supported
+          requestIdleCallback(farm);
+        }
         if (document.getElementById('token').value==="") {
           alert('you must provide a token');
         } else if (document.getElementById('channel').value==="") {
